@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-En">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="img/favicon.ico">
+	<link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet" type="text/css">
+	<title>Web$1</title>
+	<style>
+
+	body {
+		font-size: 16px;
+		font-family: "PT Serif", serif;
+		background-color: #c1c8c7;
+	}
+
+	form {
+		padding: 10px;
+	}
+
+	button {
+		border-width: 1px;
+		border-color: #d49c6b;
+		background-color: white;
+	}
+
+	input, select {
+		border-width: 1px;
+		border-color: #d49c6b;
+	}
+
+	tr {
+		height: 25px;
+	}
+
+	.x-button:hover {
+		background-color: #ebe5d5;
+	}
+
+	.x-button.selected, .main-button:hover {
+		background-color: #3a3e40;
+		color: #f6fafb;
+	}
+
+	.button-error .x-button, .input-error {
+		border-width: 2px;
+		border-color: red;
+	}
+
+	.coloured-block span {
+		color: #f6fafb;
+	}
+
+	#head-area {
+		width: 84%;
+		margin-left: 7%;
+		margin-bottom: 25px;
+		margin-top: 10px;
+	}
+
+	#left-area {
+		width: 30%;
+		margin-left: 7%;
+		margin-right: 20px;
+	}
+
+	#right-area {
+		width: 55%;
+		height: 566.5px;
+	}
+
+	#graph-block {
+		margin-bottom: 20px;
+	}
+
+	#image-container {
+		text-align: center;
+		overflow: hidden;
+	}
+
+	#table-scroll-container {
+		bottom: 0;
+		right: 0;
+		top: 60px;
+		width: 100%;
+		height: 500px;
+		overflow-y: scroll;
+	}
+
+	#result-table {
+		width: 100%;
+		text-align: center;
+		border-collapse: collapse;
+	}
+
+	#main-button-block {
+		padding: 5px;
+		text-align: center;
+	}
+
+	.coloured-block {
+		text-align: center;
+		background-color: #3a3e40;
+		padding: 1em;
+		font-size: 20px;
+	}
+
+	.content-plate {
+		background-color: white;
+	}
+
+	#result-table tr:nth-child(2n-1) {
+     	background-color: #ebe5d5;
+    }
+
+    #result-table tr:nth-child(2n):hover {
+    	background-color: #ededed;
+    }
+
+    #result-table tr:nth-child(2n-1):hover {
+    	background-color: #d1ccbe;
+    }
+
+	.form-labels {
+		display: inline-block;
+		width: 20%;
+		text-align: center;
+	}
+
+	.input-areas {
+		display: inline-block;
+		width: 65%;
+		margin-left: 2px;
+		text-align: left;
+	}
+
+	.main-button {
+		display: inline-block;
+	}
+
+	.floating-areas {
+		display: inline-block;
+		vertical-align: top;
+		overflow: hidden;
+	}
+
+	.left-aligned {
+		float:left;
+	}
+
+	.right-aligned {
+		float:right;
+	}
+
+
+
+	</style>
+</head>
+
+
+<body>
+
+	<div id="main-container">
+
+		<div id="head-area" class="coloured-block floating-areas">
+			<span class="left-aligned">Inglikova Sofia, P3233</span>
+			<span class="right-aligned">33009</span>
+		</div>
+
+
+
+
+		<div id="left-area" class="floating-areas">
+
+			<div id="graph-block" class="content-plate">
+				<div id="graph-heading" class="coloured-block">
+					<span>Areas</span>
+				</div>
+				<div id="image-container">
+					<svg width="300" height="240" class="svg-graph" xmlns="http://www.w3.org/2000/svg">
+
+		                <line class="axis" x1="0" x2="300" y1="120" y2="120" stroke="black"></line>
+		                <line class="axis" x1="150" x2="150" y1="0" y2="300" stroke="black"></line>
+		                <polygon points="150,0 144,15 156,15" stroke="black"></polygon>
+		                <polygon points="300,120 285,126 285,114" stroke="black"></polygon>
+
+		                <line class="coor-line" x1="200" x2="200" y1="115" y2="125" stroke="black"></line>
+		                <line class="coor-line" x1="250" x2="250" y1="115" y2="125" stroke="black"></line>
+
+		                <line class="coor-line" x1="50"  x2="50"  y1="115" y2="125" stroke="black"></line>
+		                <line class="coor-line" x1="100" x2="100" y1="115" y2="125" stroke="black"></line>
+
+		                <line class="coor-line" x1="145" x2="155" y1="20" y2="20" stroke="black"></line>
+		                <line class="coor-line" x1="145" x2="155" y1="70"  y2="70"  stroke="black"></line>
+
+		                <line class="coor-line" x1="145" x2="155" y1="170" y2="170" stroke="black"></line>
+		                <line class="coor-line" x1="145" x2="155" y1="220" y2="220" stroke="black"></line>
+
+		                <text class="coor-text" x="195" y="140">R/2</text>
+		                <text class="coor-text" x="248" y="140">R</text>
+
+		                <text class="coor-text" x="40" y="140">-R</text>
+		                <text class="coor-text" x="90" y="140">-R/2</text>
+
+		                <text class="coor-text" x="160" y="75">R/2</text>
+		                <text class="coor-text" x="160" y="25">R</text>
+
+		                <text class="coor-text" x="160" y="175">-R/2</text>
+		                <text class="coor-text" x="160" y="225">-R</text>
+
+		                <polygon class="svg-figure rectangle" points="50,120 50,70 150,70, 150,120"
+		                         fill="#ebe5d5" fill-opacity="0.5" stroke="#d49c6b"></polygon>
+
+		                <path  class="svg-figure circle" d="M 100 120 H 150 V 170 A 50 50 0 0 1 100 120"
+		                      fill="#ebe5d5" fill-opacity="0.5" stroke="#d49c6b"></path>
+
+		                <polygon class="svg-figure triangle" points="150,120 150,220 200,120"
+		                         fill="#ebe5d5" fill-opacity="0.5" stroke="#d49c6b"></polygon>
+
+		                <circle r="0" cx="150" cy="120" id="dot"></circle>
+
+            		</svg>
+				</div>
+			</div>
+
+
+
+			<div id="form-block" class="content-plate">
+
+				<div id="form-heading" class="coloured-block">
+					<span>Form</span>
+				</div>
+
+
+
+
+				<!-- <div id="form-container"> -->
+					
+					<form id="values-form" action="" method="POST">
+						
+						<div id="x-block">
+							<div id="xlabel" class="form-labels">
+								<label>X</label>
+							</div>
+
+							<div id="xbuttons" class="input-areas">
+								<button class="x-button" type="button" value="-5">-5</button>
+								<button class="x-button" type="button" value="-4">-4</button>
+								<button class="x-button" type="button" value="-3">-3</button>
+								<button class="x-button" type="button" value="-2">-2</button>
+								<button class="x-button" type="button" value="-1">-1</button>
+								<button class="x-button" type="button" value="0">0</button>
+								<button class="x-button" type="button" value="1">1</button>
+								<button class="x-button" type="button" value="2">2</button>
+								<button class="x-button" type="button" value="3">3</button>
+							</div>
+						</div>
+
+
+
+						<div id="y-block">
+							<div id="ylabel" class="form-labels">
+								<label>Y</label>
+							</div>
+							<div id="yvalue" class="input-areas">
+								<input type="text" id="y-input" name="y" autocomplete="off" maxlength="10" placeholder="Number from -5 to 3">
+							</div>
+
+						</div>
+
+						<div id="r-block">
+							<div id="rlabel" class="form-labels">
+								<label>R</label>
+							</div>
+							<div id="rselection" class="input-areas">
+								<select id="r-options" name="r" size="1" required>
+									<option>1</option>
+									<option>1.5</option>
+									<option>2</option>
+									<option>2.5</option>
+									<option>3</option>
+								</select>
+							</div>
+						</div>
+
+						<div id="main-button-block">
+							<button class="main-button" type="submit" form="values-form">Submit</button>
+							<button class="main-button" type="reset" form="values-form">Reset</button>
+						</div>
+
+					</form>
+					<!-- </div> -->
+
+				</div>
+
+			</div>
+
+
+
+
+			<div id="right-area" class="floating-areas content-plate">
+				<div id="table-heading" class="coloured-block">
+					<span>Table</span>
+				</div>
+
+				<div id="table-scroll-container">
+					<table id="result-table">
+						<tr id="table-header">
+							<th class="coords-col">X</th>
+							<th class="coords-col">Y</th>
+							<th class="coords-col">R</th>
+							<th class="time-col">Current time</th>
+							<th class="time-col">Execution time</th>
+							<th class="hitres-col">Hit result</th>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  	<script src="js/main.js"></script>
+  </html>
