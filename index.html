@@ -47,7 +47,7 @@
 		border-color: red;
 	}
 
-	.coloured-block span {
+	.coloured-block > span {
 		color: #f6fafb;
 	}
 
@@ -108,6 +108,10 @@
 	.content-plate {
 		background-color: white;
 	}
+	
+/*	[class*="content-plate"] {
+		background-color: white;
+	}*/
 
 	#result-table tr:nth-child(2n-1) {
      	background-color: #ebe5d5;
@@ -305,14 +309,16 @@
 
 				<div id="table-scroll-container">
 					<table id="result-table">
-						<tr id="table-header">
-							<th class="coords-col">X</th>
-							<th class="coords-col">Y</th>
-							<th class="coords-col">R</th>
-							<th class="time-col">Current time</th>
-							<th class="time-col">Execution time</th>
-							<th class="hitres-col">Hit result</th>
-						</tr>
+						<thead>
+							<tr id="table-header">
+								<th class="coords-col">X</th>
+								<th class="coords-col">Y</th>
+								<th class="coords-col">R</th>
+								<th class="time-col">Current time</th>
+								<th class="time-col">Execution time</th>
+								<th class="hitres-col">Hit result</th>
+							</tr>
+						</thead>
 					</table>
 				</div>
 

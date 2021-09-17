@@ -76,26 +76,57 @@ $(function() {
 		}
 	}
 
+	function restore() {
+		$.ajax({
+	        url: "php/restore.php",
+	        type: "POST",
+	        success: function (data){
+	            if (typeof data == "string") {
+	            	data = JSON.parse(data);
+	            }
+	            for (str of data) {
+	            	newRow = '<tr>';
+			        newRow += '<td>' + str.x + '</td>';
+			        newRow += '<td>' + str.y + '</td>';
+			        newRow += '<td>' + str.r + '</td>';
+			        newRow += '<td>' + str.currentTime + '</td>';
+			        newRow += '<td>' + str.executionTime + '</td>';
+			        newRow += '<td>' + str.hit + '</td></tr>';
+			        $('#result-table').append(newRow);
+	            }
+	        }
+    	});
+	}
 
-	$("#values-form").on("submit", function(event) {
+	function clearTable() {
+		$.ajax({
+	        url: "php/clear.php",
+	        type: "POST",
+	        success: function (){
+	            $("#result-table > tr").remove();
+	        }
+    	});
+	}
 
-		event.preventDefault();
-		if (!validateData()) return;
-
+	function addRow() {
 		$.ajax({
 			url: "php/form.php",
 			method: "POST",
-			data: $(this).serialize() + "&x="+$(".x-button.selected").val() + '&timezone=' + new Date().getTimezoneOffset(),
-			dataType: "json",
+			data: $("#values-form").serialize() + "&x="+$(".x-button.selected").val() + '&timezone=' + new Date().getTimezoneOffset(),
+			// dataType: "json",
 			success: function(data) {
-				newRow = '<tr>';
-		        newRow += '<td>' + data.x + '</td>';
-		        newRow += '<td>' + data.y + '</td>';
-		        newRow += '<td>' + data.r + '</td>';
-		        newRow += '<td>' + data.currentTime + '</td>';
-		        newRow += '<td>' + data.executionTime + '</td>';
-		        newRow += '<td>' + data.hit + '</td></tr>';
-		        $('#result-table').append(newRow);
+				alert(data);
+				data = JSON.parse(data);
+				if (data.valid) {
+					newRow = '<tr>';
+			        newRow += '<td>' + data.x + '</td>';
+			        newRow += '<td>' + data.y + '</td>';
+			        newRow += '<td>' + data.r + '</td>';
+			        newRow += '<td>' + data.currentTime + '</td>';
+			        newRow += '<td>' + data.executionTime + '</td>';
+			        newRow += '<td>' + data.hit + '</td></tr>';
+			        $('#result-table').append(newRow);
+		    	}
 			},
 			error: function (jqXHR, exception) {
 		        let msg = '';
@@ -118,13 +149,22 @@ $(function() {
 			},
 
 		});
+	}
+
+	$("#values-form").on("submit", function(event) {
+		event.preventDefault();
+		if (!validateData()) return;
+		addRow();
 	});
 	
 
 	$("#values-form").on("reset", function(event) {
 
 		$("#xbuttons").removeClass("active");
-		$("#xbuttons").children(".x-button").removeClass("selected");	
+		$("#xbuttons").children(".x-button").removeClass("selected");
+		drawDot(NaN, NaN, NaN);
+		clearTable();
+
 	});
 
 
@@ -156,5 +196,11 @@ $(function() {
 		drawDot(getX(), getY(), getR());
 	});
 
+	window.onunload = function() {
+		clearTable();
+	};
+
+	restore();
 
 });
+
