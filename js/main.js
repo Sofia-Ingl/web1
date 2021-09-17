@@ -113,9 +113,7 @@ $(function() {
 			url: "php/form.php",
 			method: "POST",
 			data: $("#values-form").serialize() + "&x="+$(".x-button.selected").val() + '&timezone=' + new Date().getTimezoneOffset(),
-			// dataType: "json",
 			success: function(data) {
-				alert(data);
 				data = JSON.parse(data);
 				if (data.valid) {
 					newRow = '<tr>';
