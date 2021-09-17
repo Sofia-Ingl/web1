@@ -7,7 +7,7 @@ if (isset($_SESSION['results'])) {
         $res .= ",";        
     }
 }
-if ($res[-1] == ",") {
+if (strcmp(substr($res,strlen($res)),",")) {
     $res = substr($res, 0, -1);
 }
 $res .= "]";
